@@ -1,0 +1,326 @@
+@media only screen and (min-width: 320px) {
+  .meteo_widget {
+    font-family: 'Suedtirol', 'KievitWebPro', sans-serif;
+    position: relative;
+  }
+
+  .meteo_widget__map_container__responsive_manger {
+    width: 100%;
+  }
+
+  .meteo_widget__map_container {
+    width: calc(100% - 16px);
+    position: relative;
+    margin-bottom: 36px;
+    padding: 8px;
+  }
+
+  /* General absolute sytle */
+  .weather-map-new__info {
+    pointer-events: none;
+  }
+  .weather-map-new__icon {
+    display: none;
+  }
+
+  .weather-map-new__temp {
+    display: none;
+  }
+
+  .weather-map-new__town {
+    display: inline-block;
+    position: absolute;
+    line-height: 1.1;
+    -webkit-transform: translateX(-50%);
+    font-family: 'Suedtirol', 'KievitWebPro', sans-serif;
+    color: #50742f;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 12px;
+    pointer-events: none;
+    font-weight: 300;
+  }
+
+  .temp-color-max {
+    color: #b31939;
+  }
+  /* Loaders */
+  .loader__placeholder.map__town {
+    width: 80px;
+    height: 14px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+  }
+  .loader__placeholder.map__slider {
+    width: 90%;
+    height: 464px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+    margin: 0 auto;
+  }
+
+  #txt_DT_dolo_regionen_ .weather-map-town {
+    pointer-events: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1024px) {
+  .loader__placeholder.map__town {
+    width: 80px;
+    height: 14px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+  }
+  .loader__placeholder.map__temp {
+    width: 18px;
+    height: 32px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+  }
+  .loader__placeholder.map__icon {
+    width: 40px;
+    height: 40px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+  }
+  .loader__placeholder.map__slider {
+    width: 90%;
+    height: 464px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .meteo_widget__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .meteo_widget__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 4;
+  }
+
+  .meteo_widget__map_container__responsive_manger {
+    width: calc(100% - 200px);
+    padding: 0;
+  }
+
+  .meteo_widget__map_container {
+    padding: 0;
+  }
+
+  .meteo_date_title {
+    text-align: center;
+  }
+
+  /* General absolute sytle*/
+  .weather-map-new__icon {
+    position: absolute;
+    width: 6.69%;
+    height: 7.7689%;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    display: block;
+  }
+
+  .weather-map-new__temp {
+    position: absolute;
+    font-weight: 600;
+    line-height: 1;
+    color: #333;
+    font-size: 18px;
+    pointer-events: none;
+    font-family: 'Suedtirol', 'KievitWebPro', sans-serif;
+    display: block;
+  }
+
+  .weather-map-new__town {
+    font-size: 16px;
+  }
+
+  .meteo_widget__map_container__responsive_manger {
+    overflow-x: hidden;
+  }
+
+  /* Loaders */
+  .loader__placeholder.map__slider {
+    width: 392px;
+    margin-right: 0;
+  }
+}
+
+/* ################## */
+/* FORECAST */
+/* ################## */
+
+@media only screen and (min-width: 320px) {
+  #district_slider {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .forecast {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .forecast__item {
+    width: 50%;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  .forecast__item__day {
+    margin-bottom: 16px;
+  }
+
+  .forecast__item__icon {
+    width: 60px;
+    display: table;
+    margin: 0 auto;
+  }
+
+  .forecast__item__temp {
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+    font-size: 24px;
+    line-height: 34px;
+    margin-top: 10px;
+  }
+
+  .forecast__item__temp span:first-child {
+    color: #b31939;
+  }
+
+  .forecast__item__temp span:last-child {
+    margin-left: 8px;
+  }
+
+  .forecast__item__rain_icon {
+    display: inline-block;
+    width: 30px;
+    vertical-align: baseline;
+  }
+  /* Loaders */
+  .forecast__date {
+    width: 100px;
+    height: 20px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+  .forecast__icon {
+    width: 60px;
+    height: 60px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+  .forecast__rain {
+    width: 100px;
+    height: 20px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .forecast__item__icon {
+    width: 120px;
+  }
+  /* Loaders */
+  .forecast__icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 24px;
+  }
+  .forecast__rain {
+    width: 100px;
+    height: 40px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .forecast {
+    align-items: center;
+    justify-content: center;
+  }
+  /* Loaders */
+  .forecast__date {
+    width: 100px;
+    height: 20px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+  .forecast__icon {
+    width: 120px;
+    height: 120px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+  .forecast__rain {
+    width: 100px;
+    height: 20px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 13px 1px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #district_slider {
+    width: 392px;
+    margin-right: 0;
+  }
+
+  .forecast {
+    display: flex;
+    flex-direction: row;
+  }
+  .forecast__item {
+    width: 25%;
+    margin-top: 0;
+  }
+  .forecast__item p {
+    margin-bottom: 24px;
+  }
+  .forecast__item__icon {
+    width: 120px;
+    display: table;
+    margin: 0 auto;
+  }
+  .forecast__item__temp {
+    font-size: 18px;
+    color: #333;
+    font-size: 24px;
+    line-height: 34px;
+  }
+  .forecast__item__temp span:first-child {
+    color: #b31939;
+  }
+  .forecast__item__temp span:last-child {
+    margin-left: 8px;
+  }
+  /* Loaders */
+  .forecast__date {
+    width: 100px;
+    height: 20px;
+    margin-bottom: 24px;
+  }
+  .forecast__icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 24px;
+  }
+  .forecast__rain {
+    width: 100px;
+    height: 20px;
+  }
+}

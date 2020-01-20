@@ -1,0 +1,87 @@
+.loader__placeholder {
+  position: relative;
+  -webkit-animation: placeHolderSwept 2.5s infinite linear forwards;
+  -moz-animation: placeHolderSwept 2.5s infinite linear forwards;
+  -o-animation: placeHolderSwept 2.5s infinite linear forwards;
+  animation: placeHolderSwept 2.5s infinite linear forwards;
+  background: #ebebec;
+  background-image: linear-gradient(to right, #ebebec 0%, #e0e0e2 20%, #ebebec 40%, #ebebec 100%);
+  background-repeat: no-repeat;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+@-webkit-keyframes placeHolderSwept {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+@-moz-keyframes placeHolderSwept {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+@-o-keyframes placeHolderSwept {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+@keyframes placeHolderSwept {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+/* EXP FOR SMALLER */
+.loader__placeholder.loader__placeholder__super_small {
+  -webkit-animation: placeHolderSwept__super_small 1.8s infinite linear forwards;
+  -moz-animation: placeHolderSwept__super_small 1.8s infinite linear forwards;
+  -o-animation: placeHolderSwept__super_small 1.8s infinite linear forwards;
+  animation: placeHolderSwept__super_small 1.8s infinite linear forwards;
+}
+
+@-webkit-keyframes placeHolderSwept__super_small {
+  0% {
+    background-position: -32px 0;
+  }
+  100% {
+    background-position: 32px 0;
+  }
+}
+@-moz-keyframes placeHolderSwept__super_small {
+  0% {
+    background-position: -32px 0;
+  }
+  100% {
+    background-position: 32px 0;
+  }
+}
+@-o-keyframes placeHolderSwept__super_small {
+  0% {
+    background-position: -32px 0;
+  }
+  100% {
+    background-position: 32px 0;
+  }
+}
+@keyframes placeHolderSwept__super_small {
+  0% {
+    background-position: -32px 0;
+  }
+  100% {
+    background-position: 32px 0;
+  }
+}

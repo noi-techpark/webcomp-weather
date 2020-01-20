@@ -1,0 +1,33 @@
+@media only screen and (min-width: 320px) {
+  h1,
+  h2,
+  h3 {
+    margin: 0 0 16px 0;
+    color: #333;
+    font-family: 'Suedtirol', 'KievitWebPro', monospace;
+    /* color: #50742f; */
+    text-align: center;
+  }
+
+  h1 {
+    color: #80909c;
+    font-size: 42px;
+    margin-bottom: 42px;
+    font-family: 'Suedtirol', 'KievitWebPro', sans-serif;
+  }
+  p {
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  h1,
+  h2,
+  h3 {
+    margin: 0 0 16px 0;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 500;
+  }
+}

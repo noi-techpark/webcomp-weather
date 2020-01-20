@@ -1,0 +1,110 @@
+@media only screen and (min-width: 320px) {
+  .carousel__card {
+    width: 100%;
+  }
+
+  .carousel__card__header_img {
+    height: 264px;
+    background-size: cover;
+  }
+
+  .carousel__card__body {
+    height: 200px;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .carousel__card__body__weather_icon {
+    width: 110px;
+    padding: 8px 16px 8px 8px;
+    flex: initial;
+  }
+
+  .carousel__card__body__weather_icon img {
+    width: 100%;
+  }
+
+  .carousel__card__body__location {
+    font-size: 22px;
+    margin: 0 0 8px 0;
+  }
+
+  .carousel__card .temp-color-max,
+  .carousel__card .temp-color-min {
+    font-size: 20px;
+    display: inline-block;
+  }
+
+  .carousel__card .temp-color-max span {
+    font-size: 30px;
+  }
+
+  .carousel__card__body__v_align_middle {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 8px;
+  }
+
+  .carousel__card__body__date {
+    flex: 0 0 100%;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 8px;
+  }
+  .carousel__card__body__date p {
+    margin: 0;
+  }
+
+  .carousel__card__body__text_container {
+    height: 160px;
+    flex: 2;
+    font-family: 'Suedtirol', 'KievitWebPro', sans-serif;
+  }
+
+  /* WALLOP CUSTOM CODE */
+  .Wallop-buttonNext,
+  .Wallop-buttonPrevious {
+    border: none;
+    background: hsla(0, 0%, 100%, 0.7);
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    position: absolute;
+    top: 40%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 3;
+    padding: 0;
+  }
+  .Wallop-buttonNext:focus,
+  .Wallop-buttonPrevious:focus {
+    outline: none;
+  }
+  .Wallop-buttonPrevious {
+    left: 1pc;
+    padding-right: 2px;
+  }
+  .Wallop-buttonNext {
+    right: 1pc;
+    padding-left: 2px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .carousel__card__body__location {
+    font-size: 2rem;
+  }
+  .carousel__card__body__weather_icon {
+    width: 130px;
+  }
+  .carousel__card .temp-color-max,
+  .carousel__card .temp-color-min {
+    font-size: 1.625rem;
+  }
+  .carousel__card .temp-color-max span {
+    font-size: 3.5rem;
+  }
+}
