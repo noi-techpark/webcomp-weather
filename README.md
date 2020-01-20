@@ -1,16 +1,5 @@
 # IDM STATIC WEB COMPONENTS
 
-Using [lerna](https://github.com/lerna/lerna) we can manage all the IDM components as monolith repository but splitted in packages.
-
-## Why
-
-The first iteration on webcomponents was related to the website configurator. This project exist because the need of:
-
-- a better project structure
-- a better dependencies management
-- a better way to pack up components
-- and every component is isolated with it's own dependencies
-
 ## Getting Started
 
 Follow the instruction here below for the development instructions.
@@ -21,11 +10,6 @@ What things you need to install the software and how to install them
 
 - Node (global)
 - Yarn (global)
-- Lerna (global)
-
-```
-...
-```
 
 ### Installing
 
@@ -36,14 +20,6 @@ Install yarn project's dependencies
 ```
 yarn
 ```
-
-Update yarn linkin using lerna
-
-```
-lerna bootstrap
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -67,24 +43,26 @@ Explain what these tests test and why
 
 ## Usage
 
-Build all widgets using Rollup
+Build all widget using Rollup:
 
 ```
-yarn build-components
+yarn build
 ```
 
-Watch components using Rollup, this is for dev purpouse
+Watch component using Rollup with dev purpose:
 
 ```
-yarn watch-components
+yarn watch
 ```
 
-Inside every component there is a folder called `website`, simply run an http local server to see the component in action
+To view the component changes:
 
 ```
-cd packages/name-of-your-component/website
-python3 -m http.server
+cd ./work
+sh ./work/serve.sh
 ```
+
+You will see the components in action at [http://0.0.0.0:8000/](http://0.0.0.0:8000/) url.
 
 ### Dist folder in packages
 
@@ -92,27 +70,18 @@ python3 -m http.server
 
 ## Built With
 
-- [Node]() - b3st l4ngu4g3 3v3r
-- [Lerna]() - A tool for managing JavaScript projects with multiple packages
+- [Node]()
 - [Polymer]() - The web framework used
 
 ## Contributing
+
+Look the `CONTRIBUTING.md` file.
 
 ## Authors
 
 - **Luca Fedrizzi** - _Initial work_ - [fedriz](https://github.com/fedriz)
 
 ## License
-
-## Demo
-
-To see every components in action in a single website go in the demo folder:
-
-```
-cd demo
-```
-
-follow the instruction in the README file to see the components in action at [http://0.0.0.0:8000/](http://0.0.0.0:8000/) url.
 
 ```
 
