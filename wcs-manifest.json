@@ -1,9 +1,8 @@
 {
   "title": "Weather",
-  "description": ".",
+  "description": "Weather Forecast Map and Preview of some days",
   "descriptionAbstract": "Weather Webcomponent",
   "license": "AGPL-3.0",
-  "repositoryUrl": "",
   "authors": [
     {
       "name": "Belka",
@@ -20,6 +19,29 @@
   },
   "configuration": {
     "tagName": "weather",
-    "options": []
+    "options": [
+      {
+        "key": "language_translation",
+        "type": "select",
+        "label": "Language",
+        "required": false,
+        "options": {
+          "values": ["en", "de", "it", "nl", "cs", "pl", "fr", "ru"],
+          "default": "en"
+        }
+      },
+      {
+        "key": "forecast_days",
+        "type": "number",
+        "required": false,
+        "label": "Forecast days",
+        "options": {
+          "default": 4,
+          "min": 0,
+          "max": 4,
+          "step": 1
+        }
+      }q
+    ]
   }
 }
