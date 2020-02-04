@@ -23,7 +23,7 @@
   "searchTags": ["weather"],
   "dist": {
     "basePath": "dist",
-    "files": ["weather_widget.js"]
+    "files": ["weather_widget.min.js"]
   },
   "configuration": {
     "tagName": "weather",
