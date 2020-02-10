@@ -26,7 +26,7 @@
     "files": ["weather_widget.min.js"]
   },
   "configuration": {
-    "tagName": "weather",
+    "tagName": "meteo-widget",
     "options": [
       {
         "key": "language_translation",
