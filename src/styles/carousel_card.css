@@ -61,7 +61,7 @@
   .carousel__card__body__text_container {
     height: 160px;
     flex: 2;
-    font-family: 'Suedtirol', 'KievitWebPro', sans-serif;
+    font-family: var(--webcomp-weather-font-family, Suedtirol, KievitWebPro, sans-serif);
   }
 
   /* WALLOP CUSTOM CODE */

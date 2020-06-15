@@ -13,7 +13,7 @@
     color: #80909c;
     font-size: 42px;
     margin-bottom: 42px;
-    font-family: 'Suedtirol', 'KievitWebPro', sans-serif;
+    font-family: var(--webcomp-weather-font-family, Suedtirol, KievitWebPro, sans-serif);
   }
   p {
     margin: 0;
