@@ -53,8 +53,6 @@ class Meteo extends LitElement {
     this.render__location = render__location.bind(this);
   }
 
-  // weather_data: { type: Object },
-  // districts_details: { type: Array },
   static get properties() {
     return {
       language_translation: { type: String },
@@ -95,7 +93,7 @@ class Meteo extends LitElement {
       map_dolomiten
     ];
 
-    let debounced_manage_map_events = debounce(function(event) {
+    let debounced_manage_map_events = debounce(function (event) {
       switch (event.type) {
         case 'mouseleave':
           if (event.path && event.path[0].id === 'main_map') {
@@ -123,9 +121,9 @@ class Meteo extends LitElement {
       }
     }, 300).bind(this);
 
-    this.slider.on(['run.after'], e => {
+    this.slider.on(['run.after'], (e) => {
       const index = this.slider.index;
-      array_districts_getted_elements.map(o => {
+      array_districts_getted_elements.map((o) => {
         o.classList.remove('weather-map-active');
         o.classList.add('weather-map-default');
       });
@@ -139,7 +137,7 @@ class Meteo extends LitElement {
 
     main_map_target.onmouseleave = debounced_manage_map_events;
 
-    array_districts_getted_elements.map(o => {
+    array_districts_getted_elements.map((o) => {
       o.onmouseenter = debounced_manage_map_events;
       o.onmouseleave = debounced_manage_map_events;
     });
@@ -155,7 +153,7 @@ class Meteo extends LitElement {
     /** The first six records are about today */
     let localities_today = Stationdata ? Stationdata.slice(0, 6) : [];
     let current_forecast = this.districts_details
-      ? this.districts_details.filter(o => o.Id === this.selected_district_id)
+      ? this.districts_details.filter((o) => o.Id === this.selected_district_id)
       : [];
     const placeholder_mod = !localities_today.length;
 
@@ -224,7 +222,7 @@ class Meteo extends LitElement {
                 if (this.selected_district_id === 0) {
                   return html`
                     <div class="forecast__item">
-                      ${['forecast__date', 'forecast__icon', 'forecast__rain'].map(o => render__placehoder(o))}
+                      ${['forecast__date', 'forecast__icon', 'forecast__rain'].map((o) => render__placehoder(o))}
                     </div>
                   `;
                 }
@@ -249,7 +247,7 @@ class Meteo extends LitElement {
                 if (this.selected_district_id !== 0) {
                   return html`
                     <div class="forecast__item">
-                      ${['forecast__date', 'forecast__icon', 'forecast__rain'].map(o => render__placehoder(o))}
+                      ${['forecast__date', 'forecast__icon', 'forecast__rain'].map((o) => render__placehoder(o))}
                     </div>
                   `;
                 }
