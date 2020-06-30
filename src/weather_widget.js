@@ -10,7 +10,7 @@ import 'moment/locale/ru';
 import { basic_weather_request, districts_details_api_call } from './api';
 import { render__carousel } from './components/carousel';
 import { render__location } from './components/location';
-import { API_TOKEN } from './constants';
+import { API_TOKEN, API_BASE_PATH, localities_class, WEATHER_ICON_PATH } from './constants';
 import style__carousel_card from './styles/carousel_card.css';
 import style_glide_theme from './styles/glide-theme.css';
 import style_glide_core from './styles/glide.css';
