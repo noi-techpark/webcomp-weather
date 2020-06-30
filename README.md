@@ -52,14 +52,14 @@ yarn build
 Watch component using Rollup with dev purpose:
 
 ```
-yarn watch
+yarn start
 ```
 
 To view the component changes:
 
 ```
 cd ./work
-sh ./work/serve.sh
+python3 -m http.server
 ```
 
 You will see the components in action at [http://0.0.0.0:8000/](http://0.0.0.0:8000/) url.
