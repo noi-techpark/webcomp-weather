@@ -64,6 +64,22 @@ sh ./work/serve.sh
 
 You will see the components in action at [http://0.0.0.0:8000/](http://0.0.0.0:8000/) url.
 
+## Customizations
+
+### Use a custom font
+
+Using the `--webcomp-weather-font-family` css variable you can set a custom `font-family`.
+[link to MDN doc](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+
+```html
+<style>
+  meteo-widget.en_widget {
+    --webcomp-weather-font-family: Metal Mania;
+  }
+</style>
+<meteo-widget class="en_widget" forecast_days="2" language_translation="en"></meteo-widget>
+```
+
 ### Dist folder in packages
 
 ## Deployment

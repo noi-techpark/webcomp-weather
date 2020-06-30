@@ -9,23 +9,40 @@
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.js"></script>
     <link rel="stylesheet" href="./fonts/fonts.css" />
     <link rel="stylesheet" href="./demo.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Odibee+Sans&family=Sriracha&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body style="background-color: #f1f3f4;">
     <div style="max-width: 1170px; margin: 0 auto;">
-      <h1>Peter</h1>
-      <meteo-widget forecast_days="20"></meteo-widget>
+      <h1>en (font: Metal Mania)</h1>
+      <style>
+        meteo-widget.en_widget {
+          --webcomp-weather-font-family: Metal Mania;
+        }
+      </style>
+      <meteo-widget class="en_widget" forecast_days="2" language_translation="en"></meteo-widget>
 
-      <h1>en</h1>
-      <meteo-widget forecast_days="2" language_translation="en"></meteo-widget>
+      <h1>de (font: Sriracha)</h1>
+      <style>
+        meteo-widget.de_widget {
+          --webcomp-weather-font-family: Sriracha;
+        }
+      </style>
+      <meteo-widget class="de_widget" forecast_days="2" language_translation="de"></meteo-widget>
 
-      <h1>de</h1>
-      <meteo-widget forecast_days="2" language_translation="de"></meteo-widget>
-
-      <h1>it</h1>
+      <h1>it (font: default, fallback)</h1>
       <meteo-widget forecast_days="2" language_translation="it"></meteo-widget>
 
       <h1>nl</h1>
-      <meteo-widget forecast_days="2" language_translation="nl"></meteo-widget>
+      <style>
+        meteo-widget.nl_widget {
+          --webcomp-weather-font-family: Odibee Sans;
+        }
+      </style>
+      <meteo-widget class="nl_widget" forecast_days="2" language_translation="nl"></meteo-widget>
 
       <h1>cs</h1>
       <meteo-widget forecast_days="2" language_translation="cs"></meteo-widget>
@@ -38,6 +55,9 @@
 
       <h1>ru</h1>
       <meteo-widget forecast_days="2" language_translation="ru"></meteo-widget>
+
+      <h1>Peter</h1>
+      <meteo-widget forecast_days="20"></meteo-widget>
     </div>
     <script src="scripts/weather_widget.js"></script>
   </body>

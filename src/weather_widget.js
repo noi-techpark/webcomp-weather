@@ -10,6 +10,7 @@ import 'moment/locale/ru';
 import { basic_weather_request, districts_details_api_call } from './api';
 import { render__carousel } from './components/carousel';
 import { render__location } from './components/location';
+import { API_TOKEN } from './constants';
 import style__carousel_card from './styles/carousel_card.css';
 import style_glide_theme from './styles/glide-theme.css';
 import style_glide_core from './styles/glide.css';
@@ -19,28 +20,15 @@ import style__towns from './styles/towns.css';
 import style__typography from './styles/typography.css';
 import { new_suedtirol_map } from './svg/new_map';
 import { p } from './translations';
-import { render__placehoder, placeholder_places, debounce } from './utils';
-
-/** City id */
-const localities_class = {
-  7: 'dolomiten',
-  6: 'bruneck',
-  5: 'brixen',
-  3: 'bozen',
-  4: 'sterzing',
-  2: 'meran',
-  1: 'schlanders'
-};
-
-const WEATHER_ICON_PATH = 'https://www.suedtirol.info/static/img/weatherIcons';
+import { debounce, placeholder_places, render__placehoder } from './utils';
 
 class Meteo extends LitElement {
   constructor() {
     super();
     this.language_translation = 'en';
     this.weather_data = {};
-    this.token = `iJ9gIQJ-LFaNT2m-R_dazqCf2XoXO8trlqZsgN6ENAMD9lrWsdKKxoOYkHdNQt9UAUJlMosEiF-njEUtoNwT3V6AtIt08bxrLa0DKLJYroj54I_C1kCPiWV69KR1IXUZj18av-nuofuYDzpE8jRYL02SI97jHEGWfnRLNOfLyEsp3pAp17rm-p6hst-t7Z0bYJkIqFvERMd4QHshaRvAb89EUPb_zEHj1JwgBUOwFIHf0e8Bm-1-nL8d9o9AIEGGDAIiJfvjGmNT-54vteKx1E_r7liUDuXfL0pctOpu5w5Mb_yBmnJsDGFjq7YHVL9dIqZzUvXnRXq1x4novqquK0jiEXRI3XxQN-qKuMpYQ8XqsXQWTjWqoGqgqbIGYpRXMcAUvO-6Y7SSKKvtMLvXGZjlC_IA0TMvF2r8JQbfluFk2XzKs7sqIu6OCxWT4Xxn8U2NWFtKXK4RkfXP9zOMP4FtTfz-X3kgwwgWuUnFvbufk9xRF8nNwqsxgwedNtnw0ouzarOI3zUFRg0dBKJse1z-_rGkF4QvTWwzGG17LPs`;
-    this.base_url = `https://tourism.opendatahub.bz.it/api/Weather`;
+    this.token = API_TOKEN;
+    this.base_url = API_BASE_PATH;
     this.slider = {};
     this.is_loading = true;
     this.selected_district_id = 0;
@@ -53,8 +41,6 @@ class Meteo extends LitElement {
     this.render__location = render__location.bind(this);
   }
 
-  // weather_data: { type: Object },
-  // districts_details: { type: Array },
   static get properties() {
     return {
       language_translation: { type: String },
@@ -95,7 +81,7 @@ class Meteo extends LitElement {
       map_dolomiten
     ];
 
-    let debounced_manage_map_events = debounce(function(event) {
+    let debounced_manage_map_events = debounce(function (event) {
       switch (event.type) {
         case 'mouseleave':
           if (event.path && event.path[0].id === 'main_map') {
@@ -123,9 +109,9 @@ class Meteo extends LitElement {
       }
     }, 300).bind(this);
 
-    this.slider.on(['run.after'], e => {
+    this.slider.on(['run.after'], (e) => {
       const index = this.slider.index;
-      array_districts_getted_elements.map(o => {
+      array_districts_getted_elements.map((o) => {
         o.classList.remove('weather-map-active');
         o.classList.add('weather-map-default');
       });
@@ -139,7 +125,7 @@ class Meteo extends LitElement {
 
     main_map_target.onmouseleave = debounced_manage_map_events;
 
-    array_districts_getted_elements.map(o => {
+    array_districts_getted_elements.map((o) => {
       o.onmouseenter = debounced_manage_map_events;
       o.onmouseleave = debounced_manage_map_events;
     });
@@ -155,7 +141,7 @@ class Meteo extends LitElement {
     /** The first six records are about today */
     let localities_today = Stationdata ? Stationdata.slice(0, 6) : [];
     let current_forecast = this.districts_details
-      ? this.districts_details.filter(o => o.Id === this.selected_district_id)
+      ? this.districts_details.filter((o) => o.Id === this.selected_district_id)
       : [];
     const placeholder_mod = !localities_today.length;
 
@@ -224,7 +210,7 @@ class Meteo extends LitElement {
                 if (this.selected_district_id === 0) {
                   return html`
                     <div class="forecast__item">
-                      ${['forecast__date', 'forecast__icon', 'forecast__rain'].map(o => render__placehoder(o))}
+                      ${['forecast__date', 'forecast__icon', 'forecast__rain'].map((o) => render__placehoder(o))}
                     </div>
                   `;
                 }
@@ -232,24 +218,21 @@ class Meteo extends LitElement {
           ${current_forecast.length && this.selected_district_id !== 0
             ? current_forecast.map(({ BezirksForecast }) => {
                 let slice_of_bezirksforecast = BezirksForecast.slice(1, this.forecast_days + 1);
-                return slice_of_bezirksforecast.map(
-                  ({ date, WeatherCode, MinTemp, MaxTemp, RainFrom, RainTo, Part1, Part2, Part3, Part4 }) => {
-                    // let rain_icon_path = rain_level_icons[render__rain_number(Part1, Part2, Part3, Part4)];
-                    return html`
-                      <div class="forecast__item">
-                        <p class="forecast__item__day">${moment(date).format('dddd')}</p>
-                        <img src="${WEATHER_ICON_PATH}/${WeatherCode}.svg" class="forecast__item__icon" />
-                        <p class="forecast__item__temp"><span>${MaxTemp}</span> / ${MinTemp}°C</p>
-                      </div>
-                    `;
-                  }
-                );
+                return slice_of_bezirksforecast.map(({ date, WeatherCode, MinTemp, MaxTemp }) => {
+                  return html`
+                    <div class="forecast__item">
+                      <p class="forecast__item__day">${moment(date).format('dddd')}</p>
+                      <img src="${WEATHER_ICON_PATH}/${WeatherCode}.svg" class="forecast__item__icon" />
+                      <p class="forecast__item__temp"><span>${MaxTemp}</span> / ${MinTemp}°C</p>
+                    </div>
+                  `;
+                });
               })
             : [0, 1, 2, 3].slice(0, this.forecast_days).map(() => {
                 if (this.selected_district_id !== 0) {
                   return html`
                     <div class="forecast__item">
-                      ${['forecast__date', 'forecast__icon', 'forecast__rain'].map(o => render__placehoder(o))}
+                      ${['forecast__date', 'forecast__icon', 'forecast__rain'].map((o) => render__placehoder(o))}
                     </div>
                   `;
                 }

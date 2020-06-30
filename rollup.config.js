@@ -2,7 +2,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonJS from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import svg from 'rollup-plugin-svg';
-import string from 'rollup-plugin-string';
+import { string } from 'rollup-plugin-string';
 import image from 'rollup-plugin-img';
 import cleanup from 'rollup-plugin-cleanup';
 
