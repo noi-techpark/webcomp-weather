@@ -1,5 +1,7 @@
 # IDM STATIC WEB COMPONENTS
 
+[![CI](https://github.com/noi-techpark/webcomp-weather/actions/workflows/ci.yml/badge.svg)](https://github.com/noi-techpark/webcomp-weather/actions/workflows/ci.yml)
+
 ## Getting Started
 
 Follow the instruction here below for the development instructions.
