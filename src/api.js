@@ -1,11 +1,12 @@
-const BASE_PATH_WEATHER = 'https://tourism.opendatahub.bz.it/api/Weather';
+const BASE_PATH_WEATHER = 'https://tourism.opendatahub.bz.it/v1/Weather';
+const ORIGIN = 'origin=webcomp-weather';
 
 export async function basic_weather_request() {
   let language =
     this.language_translation === 'en' || this.language_translation === 'it' || this.language_translation === 'de'
       ? this.language_translation
       : 'en';
-  let request = await fetch(this.base_url + `?language=${language}`, {
+  let request = await fetch(this.base_url + `?language=${language}&` + ORIGIN, {
     method: 'GET',
     headers: new Headers({
       Accept: 'application/json',
@@ -26,7 +27,7 @@ export async function districts_details_api_call() {
       : 'en';
   let tmp_districs_details = [];
   for (let i = 1; i < 8; i++) {
-    let request = await fetch(`${BASE_PATH_WEATHER}/District?language=${language}&locfilter=${i}`, {
+    let request = await fetch(`${BASE_PATH_WEATHER}/District?language=${language}&locfilter=${i}&` + ORIGIN, {
       method: 'GET',
       headers: new Headers({
         Accept: 'application/json',
