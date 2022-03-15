@@ -1,3 +1,5 @@
 diy/
 node_modules
 work/scripts
+
+dist/
