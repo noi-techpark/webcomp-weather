@@ -3,6 +3,7 @@
   "description": "Weather map and forecast of some days",
   "descriptionAbstract": "Weather webcomponent for South Tyrol",
   "license": "AGPL-3.0-or-later",
+  "repositoryUrl": "https://github.com/noi-techpark/webcomp-weather.git",
   "copyrightHolders": [
     {
       "name": "IDM",
