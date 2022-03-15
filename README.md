@@ -1,6 +1,6 @@
 # IDM STATIC WEB COMPONENTS
 
-[![CI](https://github.com/noi-techpark/webcomp-weather/actions/workflows/ci.yml/badge.svg)](https://github.com/noi-techpark/webcomp-weather/actions/workflows/ci.yml)
+[![CI/CD](https://github.com/noi-techpark/webcomp-weather/actions/workflows/main.yml/badge.svg)](https://github.com/noi-techpark/webcomp-weather/actions/workflows/main.yml)
 
 ## Getting Started
 
@@ -11,16 +11,16 @@ Follow the instruction here below for the development instructions.
 What things you need to install the software and how to install them
 
 - Node (global)
-- Yarn (global)
+- NPM (global)
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-Install yarn project's dependencies
+Install npm project's dependencies
 
 ```
-yarn
+npm install
 ```
 
 ## Running the tests
@@ -48,13 +48,13 @@ Explain what these tests test and why
 Build all widget using Rollup:
 
 ```
-yarn build
+npm run build
 ```
 
 Watch component using Rollup with dev purpose:
 
 ```
-yarn start
+npm run start
 ```
 
 To view the component changes:
