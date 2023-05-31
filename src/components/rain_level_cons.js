@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: NOI Techpark <digital@noi.bz.it>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // DEAD CODE
 import { niederschlag1 } from '../svg/niederschlag1';
 import { niederschlag2 } from '../svg/niederschlag2';

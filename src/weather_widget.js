@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: NOI Techpark <digital@noi.bz.it>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import Glide from '@glidejs/glide';
 import { html, LitElement } from '@polymer/lit-element';
 import moment from 'moment';

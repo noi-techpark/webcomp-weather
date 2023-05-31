@@ -1,3 +1,9 @@
+/*
+ * SPDX-FileCopyrightText: NOI Techpark <digital@noi.bz.it>
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 .loader__placeholder {
   position: relative;
   -webkit-animation: placeHolderSwept 2.5s infinite linear forwards;
