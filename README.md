@@ -6,6 +6,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # IDM STATIC WEB COMPONENTS
 
+![REUSE Compliance](https://github.com/noi-techpark/webcomp-weather/actions/workflows/reuse.yml/badge.svg)
 [![CI/CD](https://github.com/noi-techpark/webcomp-weather/actions/workflows/main.yml/badge.svg)](https://github.com/noi-techpark/webcomp-weather/actions/workflows/main.yml)
 
 ## Getting Started
