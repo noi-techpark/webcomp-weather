@@ -3,6 +3,6 @@ Upstream-Name: webcomp-weather
 Upstream-Contact: (c) NOI Techpark <digital@noi.bz.it>
 Source: https://github.com/noi-techpark/webcomp-weather
 
-Files: .github/* infrastructure/* .gitignore LICENSE.md .editorconfig .prettierrc CONTRIBUTORS.rst *.png *.json
+Files: .github/* infrastructure/* .gitignore .pre-commit-config.yaml LICENSE.md .editorconfig .prettierrc CONTRIBUTORS.rst *.png *.json
 Copyright: (c) NOI Techpark <digital@noi.bz.it>
 License: CC0-1.0
