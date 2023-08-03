@@ -52,7 +52,7 @@ class Meteo extends LitElement {
       selected_district_id: { type: Number }
     };
   }
-
+ 
   async firstUpdated() {
     await this.districts_details_api_call();
     await this.basic_weather_request();
@@ -93,17 +93,14 @@ class Meteo extends LitElement {
           if (event.explicitOriginalTarget && event.explicitOriginalTarget.firstElementChild.id === 'main_map') {
             this.slider.go('=0');
           }
+          if (event.composedPath() && event.composedPath()[0].id === 'main_map') {
+            this.slider.go('=0');
+          }
           break;
         case 'mouseenter':
           let target = {};
 
-          //rthoeni try
-          // const composed = event.composedPath()
-          // console.log(composed);
-
-          // if (event.composedPath()) {
-          //   target = event.composedPath()[0];
-          // }
+          console.log("2", event.composedPath());
 
           if (event.path) {
             target = event.path[0];
@@ -111,8 +108,11 @@ class Meteo extends LitElement {
           if (event.explicitOriginalTarget) {
             target = event.explicitOriginalTarget;
           }
-
-          console.log(target);         
+          if (event.composedPath()) {
+            target = event.composedPath()[0];
+          }
+          // console.log(event.path);
+          // console.log(event);        
 
           let district = parseInt(target.getAttribute('data-district_id'));
           target.classList.remove('weather-map-default');
@@ -122,7 +122,7 @@ class Meteo extends LitElement {
         default:
           break;
       }
-    }, 300).bind(this);
+    }, 300, false).bind(this);
 
     this.slider.on(['run.after'], (e) => {
       const index = this.slider.index;
