@@ -14,8 +14,7 @@ export async function basic_weather_request() {
   let request = await fetch(this.base_url + `?language=${language}&` + ORIGIN + `&` + SOURCE, {
     method: 'GET',
     headers: new Headers({
-      Accept: 'application/json',
-      Authorization: `Bearer ${this.token}`
+      Accept: 'application/json'
     })
   });
 
@@ -35,8 +34,7 @@ export async function districts_details_api_call() {
     let request = await fetch(`${BASE_PATH_WEATHER}/District?language=${language}&locfilter=${i}&` + ORIGIN + `&` + SOURCE, {
       method: 'GET',
       headers: new Headers({
-        Accept: 'application/json',
-        Authorization: `Bearer ${this.token}`
+        Accept: 'application/json'
       })
     });
     const response = await request.json();

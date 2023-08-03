@@ -96,16 +96,23 @@ class Meteo extends LitElement {
           break;
         case 'mouseenter':
           let target = {};
+
+          //rthoeni try
+          // const composed = event.composedPath()
+          // console.log(composed);
+
+          // if (event.composedPath()) {
+          //   target = event.composedPath()[0];
+          // }
+
           if (event.path) {
             target = event.path[0];
           }
           if (event.explicitOriginalTarget) {
             target = event.explicitOriginalTarget;
           }
-          console.log(event.explicitOriginalTarget);
-          console.log(event.path);
-          console.log(event.currentTarget);
-          console.log(event.originalTarget);
+
+          console.log(target);         
 
           let district = parseInt(target.getAttribute('data-district_id'));
           target.classList.remove('weather-map-default');
@@ -206,12 +213,12 @@ class Meteo extends LitElement {
         </div>
         <div class="forecast">
           ${Forecast && this.selected_district_id === 0
-            ? Forecast.slice(0, this.forecast_days).map(({ date, Weathercode,WeatherImgurl, TempMinmin, TempMaxmax }) => {
+            ? Forecast.slice(0, this.forecast_days).map(({ date, Weathercode, WeatherImgurl, TempMinmin, TempMaxmax }) => {
                 let weather_icon = WeatherImgurl;
                 return html`
                   <div class="forecast__item">
                     <p class="forecast__item__day">${moment(date).format('dddd')}</p>
-                    <img src=${weather_icon} class="forecast__item__icon" />
+                    <img src="${weather_icon}" class="forecast__item__icon" />
                     <p class="forecast__item__temp"><span>${TempMaxmax}</span> / ${TempMinmin}°C</p>
                   </div>
                 `;
@@ -228,11 +235,11 @@ class Meteo extends LitElement {
           ${current_forecast.length && this.selected_district_id !== 0
             ? current_forecast.map(({ BezirksForecast }) => {
                 let slice_of_bezirksforecast = BezirksForecast.slice(1, this.forecast_days + 1);
-                return slice_of_bezirksforecast.map(({ date, WeatherCode,WeatherImgurl, MinTemp, MaxTemp }) => {
+                return slice_of_bezirksforecast.map(({ date, WeatherCode, WeatherImgUrl, MinTemp, MaxTemp }) => {
                   return html`
                     <div class="forecast__item">
                       <p class="forecast__item__day">${moment(date).format('dddd')}</p>
-                      <img src="${WeatherImgurl}" class="forecast__item__icon" />
+                      <img src="${WeatherImgUrl}" class="forecast__item__icon" />
                       <p class="forecast__item__temp"><span>${MaxTemp}</span> / ${MinTemp}°C</p>
                     </div>
                   `;
