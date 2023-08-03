@@ -19,7 +19,7 @@ function render__carousel__card(header_img_src, location, today, today_string, l
                 <div class="carousel__card__body__weather_icon">
                   <img
                     style=""
-                    src=${`https://www.suedtirol.info/static/img/weatherIcons/${today ? today.WeatherCode : ''}.svg`}
+                    src=${`${today ? today.WeatherImgUrl : ''}`}
                   />
                 </div>
               `

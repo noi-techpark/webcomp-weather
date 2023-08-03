@@ -5,7 +5,7 @@
 import { html } from '@polymer/lit-element';
 import { render__placehoder } from '../utils';
 
-export function render__location(location, name, max_temp, min_temp, weather_code, placeholder_mod) {
+export function render__location(location, name, max_temp, min_temp, weather_code, weather_imgurl, placeholder_mod) {
   let class__weather__icon = `weather-map-new__icon weather-map-new__icon--${location}`;
   return html`
     <a class="weather-map-new__info" href="#">
@@ -17,7 +17,7 @@ export function render__location(location, name, max_temp, min_temp, weather_cod
           `
         : html`
             <img
-              src="https://www.suedtirol.info/static/img/weatherIcons/${weather_code}.svg"
+              src="${weather_imgurl}"
               class="${class__weather__icon}"
             />
           `}

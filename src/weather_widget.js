@@ -14,7 +14,7 @@ import 'moment/locale/ru';
 import { basic_weather_request, districts_details_api_call } from './api';
 import { render__carousel } from './components/carousel';
 import { render__location } from './components/location';
-import { API_TOKEN, API_BASE_PATH, localities_class, WEATHER_ICON_PATH } from './constants';
+import { API_BASE_PATH, localities_class } from './constants';
 import style__carousel_card from './styles/carousel_card.css';
 import style_glide_theme from './styles/glide-theme.css';
 import style_glide_core from './styles/glide.css';
@@ -31,7 +31,6 @@ class Meteo extends LitElement {
     super();
     this.language_translation = 'en';
     this.weather_data = {};
-    this.token = API_TOKEN;
     this.base_url = API_BASE_PATH;
     this.slider = {};
     this.is_loading = true;
@@ -103,6 +102,11 @@ class Meteo extends LitElement {
           if (event.explicitOriginalTarget) {
             target = event.explicitOriginalTarget;
           }
+          console.log(event.explicitOriginalTarget);
+          console.log(event.path);
+          console.log(event.currentTarget);
+          console.log(event.originalTarget);
+
           let district = parseInt(target.getAttribute('data-district_id'));
           target.classList.remove('weather-map-default');
           target.classList.add('weather-map-active');
@@ -175,23 +179,25 @@ class Meteo extends LitElement {
             <div class="meteo_widget__map_container">
               ${new_suedtirol_map(this.language_translation)}
               ${placeholder_mod
-                ? placeholder_places.map(({ Id, CityName, Maxtemp, MinTemp, WeatherCode }) => {
+                ? placeholder_places.map(({ Id, CityName, Maxtemp, MinTemp, WeatherCode, WeatherImgUrl }) => {
                     return this.render__location(
                       localities_class[Id],
                       CityName.split('/')[0],
                       Maxtemp,
                       MinTemp,
                       WeatherCode,
+                      WeatherImgUrl,
                       placeholder_mod
                     );
                   })
-                : localities_today.map(({ Id, CityName, Maxtemp, MinTemp, WeatherCode }) => {
+                : localities_today.map(({ Id, CityName, Maxtemp, MinTemp, WeatherCode, WeatherImgUrl }) => {
                     return this.render__location(
                       localities_class[Id],
                       CityName.split('/')[0],
                       Maxtemp,
                       MinTemp,
-                      WeatherCode
+                      WeatherCode,
+                      WeatherImgUrl
                     );
                   })}
             </div>
@@ -200,8 +206,8 @@ class Meteo extends LitElement {
         </div>
         <div class="forecast">
           ${Forecast && this.selected_district_id === 0
-            ? Forecast.slice(0, this.forecast_days).map(({ date, Weathercode, TempMinmin, TempMaxmax }) => {
-                let weather_icon = `${WEATHER_ICON_PATH}/${Weathercode}.svg`;
+            ? Forecast.slice(0, this.forecast_days).map(({ date, Weathercode,WeatherImgurl, TempMinmin, TempMaxmax }) => {
+                let weather_icon = WeatherImgurl;
                 return html`
                   <div class="forecast__item">
                     <p class="forecast__item__day">${moment(date).format('dddd')}</p>
@@ -222,11 +228,11 @@ class Meteo extends LitElement {
           ${current_forecast.length && this.selected_district_id !== 0
             ? current_forecast.map(({ BezirksForecast }) => {
                 let slice_of_bezirksforecast = BezirksForecast.slice(1, this.forecast_days + 1);
-                return slice_of_bezirksforecast.map(({ date, WeatherCode, MinTemp, MaxTemp }) => {
+                return slice_of_bezirksforecast.map(({ date, WeatherCode,WeatherImgurl, MinTemp, MaxTemp }) => {
                   return html`
                     <div class="forecast__item">
                       <p class="forecast__item__day">${moment(date).format('dddd')}</p>
-                      <img src="${WEATHER_ICON_PATH}/${WeatherCode}.svg" class="forecast__item__icon" />
+                      <img src="${WeatherImgurl}" class="forecast__item__icon" />
                       <p class="forecast__item__temp"><span>${MaxTemp}</span> / ${MinTemp}°C</p>
                     </div>
                   `;
