@@ -84,45 +84,56 @@ class Meteo extends LitElement {
       map_dolomiten
     ];
 
-    let debounced_manage_map_events = debounce(function (event) {
-      switch (event.type) {
-        case 'mouseleave':
-          if (event.path && event.path[0].id === 'main_map') {
-            this.slider.go('=0');
-          }
-          if (event.explicitOriginalTarget && event.explicitOriginalTarget.firstElementChild.id === 'main_map') {
-            this.slider.go('=0');
-          }
-          if (event.composedPath() && event.composedPath()[0].id === 'main_map') {
-            this.slider.go('=0');
-          }
-          break;
-        case 'mouseenter':
-          let target = {};
+    //rthoeni fix, event.path is deprecated and not working in Chrome, so we have to use composedPath()
+    //composedPath() does not work if it gets called withhin the delayed function so we have to save it first to a constant
+    let debounced_manage_map_events = function(event) {
+      const storedPath = [...event.composedPath()];
+     
+        debounce(function (event) {
+        switch (event.type) {
+          case 'mouseleave':
 
-          console.log("2", event.composedPath());
+            //console.log(storedPath[0].id);
+            //deprecated
+            // if (event.path && event.path[0].id === 'main_map') {
+            //   this.slider.go('=0');
+            // }
+            if (event.explicitOriginalTarget && event.explicitOriginalTarget.firstElementChild.id === 'main_map') {
+              this.slider.go('=0');
+            }
+            else if (storedPath && storedPath[0].id === 'main_map') {
+              this.slider.go('=0');
+            }
+            break;
+          case 'mouseenter':
+            let target = {};
 
-          if (event.path) {
-            target = event.path[0];
-          }
-          if (event.explicitOriginalTarget) {
-            target = event.explicitOriginalTarget;
-          }
-          if (event.composedPath()) {
-            target = event.composedPath()[0];
-          }
-          // console.log(event.path);
-          // console.log(event);        
+            //deprecated
+            // if (event.path) {
+            //   target = event.path[0];
+            // }
+            //working in firefox
+            if (event.explicitOriginalTarget) {
+              target = event.explicitOriginalTarget;
+            }            
+            else if (storedPath) {
+              target = storedPath[0];
+            }
 
-          let district = parseInt(target.getAttribute('data-district_id'));
-          target.classList.remove('weather-map-default');
-          target.classList.add('weather-map-active');
-          this.slider.go(`=${district}`);
-          break;
-        default:
-          break;
-      }
-    }, 300, false).bind(this);
+            // console.log(event.path);
+            console.log("data-district_id", target.getAttribute('data-district_id'));
+   
+            let district = parseInt(target.getAttribute('data-district_id'));
+            target.classList.remove('weather-map-default');
+            target.classList.add('weather-map-active');
+            this.slider.go(`=${district}`);
+            break;
+          default:
+            break;
+        }
+      }, 300, false).bind(this)(event)
+    }.bind(this);
+
 
     this.slider.on(['run.after'], (e) => {
       const index = this.slider.index;

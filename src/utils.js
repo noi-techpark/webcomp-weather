@@ -84,6 +84,14 @@ export function debounce(func, wait, immediate) {
   };
 }
 
+// export function debounce(func, timeout = 300){
+//   let timer;
+//   return (...args) => {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => { func.apply(this, args); }, timeout);
+//   };
+// }
+
 export const city_district_assoc = {
   1: 3,
   2: 2,
